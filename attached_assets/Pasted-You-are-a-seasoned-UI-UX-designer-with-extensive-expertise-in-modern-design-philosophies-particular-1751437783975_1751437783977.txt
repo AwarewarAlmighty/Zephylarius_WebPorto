@@ -1,0 +1,23 @@
+You are a seasoned UI/UX designer with extensive expertise in modern design philosophies, particularly Apple's liquid glass aesthetic. I would like to leverage your skills to create a sleek, professional personal portfolio that aligns with my CV while embodying Apple's cutting-edge design principles.  
+
+Please structure the portfolio to include:  
+
+- **Visual Identity**: Apply Apple's liquid glass design philosophy—smooth gradients, glass morphism, subtle reflections, and fluid animations—to create a high-end, futuristic aesthetic.  
+
+- **Content Layout**: Organize sections (About, Experience, Skills, Projects, Contact) with a minimalist yet dynamic hierarchy, ensuring seamless navigation and visual harmony.  
+
+- **Interactive Elements**: Incorporate micro-interactions (hover effects, smooth transitions) that enhance engagement without compromising performance.  
+
+- **Typography & Color Scheme**: Use Apple-inspired typography (San Francisco or similar) and a refined color palette that complements the liquid glass effect (soft blues, frosted whites, deep blacks).  
+
+- **Responsive Design**: Ensure full adaptability across devices (desktop, tablet, mobile) with fluid scaling and touch-friendly interactions.  
+
+- **Portfolio Showcase**: Highlight key projects with immersive, glass-morphic cards that reveal details on interaction (e.g., tilt effects, layered transparency).  
+
+- **Integration with CV**: Seamlessly translate my CV content into visually compelling narratives, prioritizing readability and visual appeal.  
+
+- **Performance Optimization**: Balance aesthetics with fast load times, leveraging modern frameworks (e.g., GSAP for animations, Three.js for subtle 3D depth).  
+
+Rely on your mastery of Apple’s design language and portfolio best practices to deliver a polished, innovative showcase that reflects professionalism and technical sophistication.  
+
+Your expertise in blending aesthetics with functionality will ensure this portfolio stands out while maintaining usability and elegance.
