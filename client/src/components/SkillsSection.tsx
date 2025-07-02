@@ -78,27 +78,17 @@ export default function SkillsSection() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {/* Programming Languages */}
+          {/* Soft Skills */}
           <div className="glass-card rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-6 text-blue-300 flex items-center">
-              <div className="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
-              Programming Languages
+            <h3 className="text-xl font-semibold mb-6 text-green-300 flex items-center">
+              <div className="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+              Soft Skills
             </h3>
-            <div className="space-y-4">
-              {programmingSkills.map((skill, index) => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-white/80">{skill.name}</span>
-                    <span className="text-white/60">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-white/10 rounded-full h-2">
-                    <div 
-                      ref={(el) => skillBarsRef.current[index] = el}
-                      className="skill-bar h-2 rounded-full" 
-                      data-width={`${skill.level}%`}
-                      style={{ width: '0%' }}
-                    ></div>
-                  </div>
+            <div className="space-y-3">
+              {softSkills.map((skill) => (
+                <div key={skill} className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <span className="text-white/80">{skill}</span>
                 </div>
               ))}
             </div>
@@ -139,14 +129,24 @@ export default function SkillsSection() {
           </div>
         </div>
         
-        {/* Soft Skills */}
+        {/* Programming Languages */}
         <div className="glass-card rounded-xl p-8">
-          <h3 className="text-2xl font-semibold mb-6 text-center text-green-300">Soft Skills</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {softSkills.map((skill) => (
-              <div key={skill} className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-white/80">{skill}</span>
+          <h3 className="text-2xl font-semibold mb-6 text-center text-blue-300">Programming Languages</h3>
+          <div className="space-y-4">
+            {programmingSkills.map((skill, index) => (
+              <div key={skill.name}>
+                <div className="flex justify-between mb-2">
+                  <span className="text-white/80">{skill.name}</span>
+                  <span className="text-white/60">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-white/10 rounded-full h-2">
+                  <div 
+                    ref={(el) => skillBarsRef.current[index] = el}
+                    className="skill-bar h-2 rounded-full" 
+                    data-width={`${skill.level}%`}
+                    style={{ width: '0%' }}
+                  ></div>
+                </div>
               </div>
             ))}
           </div>
