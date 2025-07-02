@@ -101,12 +101,35 @@ export default function ProjectsSection() {
               </div>
               
               <div className="flex space-x-4">
-                <button className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 ${getButtonClass(project.color)}`}>
-                  {project.id === 1 ? 'View Details' : 'View Code'}
-                </button>
-                <button className="flex-1 py-2 px-4 btn-glass text-white rounded-lg">
-                  Live Demo
-                </button>
+                {project.id === 1 ? (
+                  <a 
+                    href="https://github.com/AwarewarAlmighty/NeuroCura-AI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 text-center ${getButtonClass(project.color)}`}
+                  >
+                    View on GitHub
+                  </a>
+                ) : (
+                  <>
+                    <a 
+                      href="https://github.com/AwarewarAlmighty/Cinema-Booking-System"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 text-center ${getButtonClass(project.color)}`}
+                    >
+                      View on GitHub
+                    </a>
+                    <a 
+                      href="https://cinema-booking-system.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 py-2 px-4 btn-glass text-white rounded-lg text-center"
+                    >
+                      Live Demo
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           ))}
