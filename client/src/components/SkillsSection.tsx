@@ -144,7 +144,8 @@ export default function SkillsSection() {
           <h3 className="text-2xl font-semibold mb-6 text-center text-green-300">Soft Skills</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {softSkills.map((skill) => (
-              <div key={skill} className="glass-effect rounded-lg p-4 text-center hover:scale-105 transition-transform duration-300">
+              <div key={skill} className="flex items-center space-x-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                 <span className="text-white/80">{skill}</span>
               </div>
             ))}
