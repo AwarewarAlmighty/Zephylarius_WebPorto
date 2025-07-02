@@ -44,10 +44,10 @@ export default function ExperienceSection() {
 
   const getColorClasses = (color: string) => {
     const colors = {
-      blue: "text-blue-300 bg-blue-400",
-      purple: "text-purple-300 bg-purple-400",
-      green: "text-green-300 bg-green-400",
-      yellow: "text-yellow-300 bg-yellow-400"
+      blue: "text-gray-300 bg-gray-400",
+      purple: "text-gray-400 bg-gray-500",
+      green: "text-gray-500 bg-gray-600",
+      yellow: "text-gray-200 bg-gray-300"
     };
     return colors[color as keyof typeof colors] || colors.blue;
   };
@@ -66,7 +66,7 @@ export default function ExperienceSection() {
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-400 to-purple-400 hidden md:block"></div>
+          <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-gray-400 to-gray-600 hidden md:block"></div>
           
           {/* Experience Items */}
           <div className="space-y-12">

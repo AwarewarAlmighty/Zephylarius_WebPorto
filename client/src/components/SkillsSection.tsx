@@ -58,9 +58,9 @@ export default function SkillsSection() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case "Expert": return "bg-green-500/20 text-green-300";
-      case "Advanced": return "bg-blue-500/20 text-blue-300";
-      case "Intermediate": return "bg-purple-500/20 text-purple-300";
+      case "Expert": return "bg-gray-600/20 text-gray-200";
+      case "Advanced": return "bg-gray-500/20 text-gray-300";
+      case "Intermediate": return "bg-gray-400/20 text-gray-400";
       default: return "bg-gray-500/20 text-gray-300";
     }
   };
@@ -80,14 +80,14 @@ export default function SkillsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Soft Skills */}
           <div className="glass-card rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-6 text-green-300 flex items-center">
-              <div className="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+            <h3 className="text-xl font-semibold mb-6 text-gray-300 flex items-center">
+              <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
               Soft Skills
             </h3>
             <div className="space-y-3">
               {softSkills.map((skill) => (
                 <div key={skill} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                   <span className="text-white/80">{skill}</span>
                 </div>
               ))}
@@ -96,8 +96,8 @@ export default function SkillsSection() {
           
           {/* Frameworks & Tools */}
           <div className="glass-card rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-6 text-purple-300 flex items-center">
-              <div className="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
+            <h3 className="text-xl font-semibold mb-6 text-gray-400 flex items-center">
+              <div className="w-3 h-3 bg-gray-500 rounded-full mr-3"></div>
               Frameworks & Tools
             </h3>
             <div className="space-y-3">
@@ -114,14 +114,14 @@ export default function SkillsSection() {
           
           {/* Cybersecurity */}
           <div className="glass-card rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-6 text-red-300 flex items-center">
-              <div className="w-3 h-3 bg-red-400 rounded-full mr-3"></div>
+            <h3 className="text-xl font-semibold mb-6 text-gray-500 flex items-center">
+              <div className="w-3 h-3 bg-gray-600 rounded-full mr-3"></div>
               Cybersecurity
             </h3>
             <div className="space-y-3">
               {cybersecuritySkills.map((skill) => (
                 <div key={skill} className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                   <span className="text-white/80">{skill}</span>
                 </div>
               ))}
@@ -131,7 +131,7 @@ export default function SkillsSection() {
         
         {/* Programming Languages */}
         <div className="glass-card rounded-xl p-8">
-          <h3 className="text-2xl font-semibold mb-6 text-center text-blue-300">Programming Languages</h3>
+          <h3 className="text-2xl font-semibold mb-6 text-center text-gray-200">Programming Languages</h3>
           <div className="space-y-4">
             {programmingSkills.map((skill, index) => (
               <div key={skill.name}>

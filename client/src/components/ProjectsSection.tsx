@@ -42,11 +42,11 @@ export default function ProjectsSection() {
   ];
 
   const getColorClass = (color: string) => {
-    return color === 'blue' ? 'text-blue-300' : 'text-purple-300';
+    return color === 'blue' ? 'text-gray-300' : 'text-gray-400';
   };
 
   const getButtonClass = (color: string) => {
-    return color === 'blue' ? 'bg-blue-500/20 text-blue-300 hover:bg-blue-500/30' : 'bg-purple-500/20 text-purple-300 hover:bg-purple-500/30';
+    return color === 'blue' ? 'bg-gray-500/20 text-gray-300 hover:bg-gray-500/30' : 'bg-gray-600/20 text-gray-400 hover:bg-gray-600/30';
   };
 
   return (
@@ -93,7 +93,7 @@ export default function ProjectsSection() {
                 <div className="space-y-2 text-sm text-white/70">
                   {project.achievements.map((achievement, index) => (
                     <div key={index} className="flex items-start space-x-2">
-                      <div className={`w-1.5 h-1.5 ${project.color === 'blue' ? 'bg-blue-400' : 'bg-purple-400'} rounded-full mt-2`}></div>
+                      <div className={`w-1.5 h-1.5 ${project.color === 'blue' ? 'bg-gray-400' : 'bg-gray-500'} rounded-full mt-2`}></div>
                       <span>{achievement}</span>
                     </div>
                   ))}

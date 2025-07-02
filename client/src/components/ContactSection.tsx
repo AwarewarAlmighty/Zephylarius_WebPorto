@@ -84,11 +84,11 @@ export default function ContactSection() {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="glass-card rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-blue-300">Contact Information</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-300">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 glass-effect rounded-full flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-blue-300" />
+                    <Phone className="w-5 h-5 text-gray-300" />
                   </div>
                   <div>
                     <p className="text-white/80">+62 81382728069</p>
@@ -98,7 +98,7 @@ export default function ContactSection() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 glass-effect rounded-full flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-purple-300" />
+                    <Mail className="w-5 h-5 text-gray-400" />
                   </div>
                   <div>
                     <p className="text-white/80">zephylarius.zl@gmail.com</p>
@@ -108,7 +108,7 @@ export default function ContactSection() {
                 
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 glass-effect rounded-full flex items-center justify-center">
-                    <Linkedin className="w-5 h-5 text-green-300" />
+                    <Linkedin className="w-5 h-5 text-gray-500" />
                   </div>
                   <div>
                     <p className="text-white/80">LinkedIn Profile</p>
@@ -119,22 +119,22 @@ export default function ContactSection() {
             </div>
             
             <div className="glass-card rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-purple-300">Areas of Expertise</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-400">Areas of Expertise</h3>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                   <span className="text-white/80">Cybersecurity Consulting</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
                   <span className="text-white/80">Event Management</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
                   <span className="text-white/80">Full-Stack Development</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                   <span className="text-white/80">AI Integration</span>
                 </div>
               </div>
