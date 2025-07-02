@@ -72,10 +72,10 @@ export default function ContactSection() {
     <section id="contact" className="py-20 relative">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary px-4">
             Get In Touch
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-lg md:text-xl text-white/70 px-4">
             Let's collaborate on your next cybersecurity project or event
           </p>
         </div>

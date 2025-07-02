@@ -3,10 +3,10 @@ export default function AboutSection() {
     <section id="about" className="py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary px-4">
             About Me
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto px-4">
             Bridging the gap between cybersecurity and event management through innovative solutions
           </p>
         </div>

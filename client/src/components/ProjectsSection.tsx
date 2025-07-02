@@ -53,10 +53,10 @@ export default function ProjectsSection() {
     <section id="projects" className="py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary px-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-lg md:text-xl text-white/70 px-4">
             Innovative solutions in AI healthcare and web development
           </p>
         </div>

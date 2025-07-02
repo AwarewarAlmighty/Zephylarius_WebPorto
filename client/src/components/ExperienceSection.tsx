@@ -56,10 +56,10 @@ export default function ExperienceSection() {
     <section id="experience" className="py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary px-4">
             Experience
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-lg md:text-xl text-white/70 px-4">
             Leadership roles in event management and community engagement
           </p>
         </div>
