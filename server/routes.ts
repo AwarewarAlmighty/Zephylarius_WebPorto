@@ -2,9 +2,10 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
 import { Router } from "express";
-import { getAppDb } from "./storage.ts";
 import path from "path";
 import { fileURLToPath } from "url";
+import nodemailer from "nodemailer";
+import 'dotenv/config'; // Make sure to load environment variables
 
 // Simple in-memory rate limiter
 const rateLimiter = new Map();
@@ -15,7 +16,6 @@ function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const userRequests = rateLimiter.get(ip) || [];
 
-  // Clean old requests
   const validRequests = userRequests.filter((time: number) => now - time < RATE_LIMIT_WINDOW);
 
   if (validRequests.length >= MAX_REQUESTS) {
@@ -43,10 +43,8 @@ const router = Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// CV download route
 router.get("/download/cv", (req, res) => {
   const cvPath = path.join(__dirname, "../attached_assets/Zephylarius Sitanggang_CV_2025-06-25_1751437801917.pdf");
-
   res.download(cvPath, "Zephylarius_Sitanggang_CV.pdf", (err) => {
     if (err) {
       console.error("Error downloading CV:", err);
@@ -56,10 +54,17 @@ router.get("/download/cv", (req, res) => {
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Contact form endpoint
+  // Create a nodemailer transporter using your email service credentials
+  const transporter = nodemailer.createTransport({
+    service: 'gmail', // Or your email provider
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
-      // Rate limiting
       const clientIP = req.ip || req.connection.remoteAddress || 'unknown';
       if (!checkRateLimit(clientIP)) {
         return res.status(429).json({ 
@@ -70,28 +75,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const validatedData = contactSchema.parse(req.body);
 
-      // Sanitize inputs
       const sanitizedData = {
         name: sanitizeInput(validatedData.name),
         email: sanitizeInput(validatedData.email),
-        subject: validatedData.subject ? sanitizeInput(validatedData.subject) : undefined,
+        subject: validatedData.subject ? sanitizeInput(validatedData.subject) : 'No Subject',
         message: sanitizeInput(validatedData.message)
       };
 
-      // In a real application, you would:
-      // 1. Send an email using a service like Nodemailer, SendGrid, etc.
-      // 2. Store the message in a database
-      // 3. Send notifications
+      // Setup email data
+      const mailOptions = {
+        from: `"${sanitizedData.name}" <${process.env.EMAIL_USER}>`, // Sender address
+        to: process.env.EMAIL_USER, // Your receiving email address
+        replyTo: sanitizedData.email, // Reply-to the person who filled the form
+        subject: `New Contact Form Submission: ${sanitizedData.subject}`,
+        text: `You have a new message from ${sanitizedData.name} (${sanitizedData.email}):\n\n${sanitizedData.message}`,
+        html: `<p>You have a new message from <strong>${sanitizedData.name}</strong> (${sanitizedData.email}):</p><p>${sanitizedData.message}</p>`,
+      };
 
-      console.log("Contact form submission:", sanitizedData);
-
-      // Simulate email sending delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send the email
+      await transporter.sendMail(mailOptions);
 
       res.json({ 
         success: true, 
         message: "Message sent successfully" 
       });
+
     } catch (error) {
       if (error instanceof z.ZodError) {
         res.status(400).json({ 

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import profilePic from "@/assets/profile.jpg"; // Your profile picture import
 
 export default function HeroSection() {
   useEffect(() => {
-    // Add floating animation to background elements
     if (typeof window !== "undefined" && window.gsap) {
       window.gsap.to(".animate-float", {
         y: -20,
@@ -59,45 +59,61 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className="glass-card rounded-3xl p-12 max-w-4xl mx-auto animate-slide-up">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-rainbow px-4">
-            Zephylarius Sitanggang
-          </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed px-4">
-            Cybersecurity Specialist & Event Management Expert
-          </p>
-          <p className="text-base md:text-lg text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed px-4">
-            A solutions-oriented Informatics student with dual specialization in
-            cybersecurity and end-to-end event management. Building secure
-            digital solutions while creating flawlessly orchestrated
-            experiences.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button
-              onClick={handleScrollToProjects}
-              className="group relative inline-flex items-center justify-center px-8 py-4 btn-primary rounded-full font-medium transition-all duration-300 hover:scale-105"
-            >
-              View My Work
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button
-              onClick={handleScrollToContact}
-              className="inline-flex items-center justify-center px-8 py-4 btn-glass text-white rounded-full font-medium"
-            >
-              Get In Touch
-            </button>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-4 mt-12">
-            <div className="glass-effect rounded-full px-6 py-3 hover:scale-110 transition-transform duration-300">
-              <span className="text-sm font-medium">GPA: 3.87</span>
+        <div className="glass-card rounded-3xl p-8 md:p-12 max-w-5xl mx-auto animate-slide-up">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            {/* Profile Picture Column */}
+            <div className="flex-shrink-0">
+              <img
+                src={profilePic}
+                alt="Zephylarius Sitanggang"
+                className="w-48 md:w-56 rounded-3xl border-4 border-white/20 shadow-lg"
+              />
             </div>
-            <div className="glass-effect rounded-full px-6 py-3 hover:scale-110 transition-transform duration-300">
-              <span className="text-sm font-medium">President University</span>
-            </div>
-            <div className="glass-effect rounded-full px-6 py-3 hover:scale-110 transition-transform duration-300">
-              <span className="text-sm font-medium">2023-Present</span>
+
+            {/* Text Content Column */}
+            <div className="flex-grow text-center md:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gradient-rainbow">
+                Zephylarius Sitanggang
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 mb-6">
+                Cybersecurity Specialist & Event Management Expert
+              </p>
+              <p className="text-base md:text-lg text-white/70 mb-8 max-w-2xl mx-auto md:mx-0">
+                A solutions-oriented Informatics student building secure
+                digital solutions while creating flawlessly orchestrated
+                experiences.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <button
+                  onClick={handleScrollToProjects}
+                  className="group relative inline-flex items-center justify-center px-6 py-3 btn-primary rounded-full font-medium transition-all duration-300 hover:scale-105"
+                >
+                  View My Work
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                </button>
+                <button
+                  onClick={handleScrollToContact}
+                  className="inline-flex items-center justify-center px-6 py-3 btn-glass text-white rounded-full font-medium"
+                >
+                  Get In Touch
+                </button>
+              </div>
+
+              {/* MOVED THE INFO TAGS HERE */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+                <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
+                  <span className="text-sm font-medium">GPA: 3.87</span>
+                </div>
+                <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
+                  <span className="text-sm font-medium">
+                    President University
+                  </span>
+                </div>
+                <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
+                  <span className="text-sm font-medium">2023-Present</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
