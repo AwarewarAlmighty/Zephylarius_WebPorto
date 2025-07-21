@@ -1,6 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
+import { Router } from "express";
+import { getAppDb } from "./storage.ts";
+import path from "path";
+import { fileURLToPath } from "url";
 
 // Simple in-memory rate limiter
 const rateLimiter = new Map();
@@ -10,14 +14,14 @@ const MAX_REQUESTS = 5; // 5 requests per window
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const userRequests = rateLimiter.get(ip) || [];
-  
+
   // Clean old requests
   const validRequests = userRequests.filter((time: number) => now - time < RATE_LIMIT_WINDOW);
-  
+
   if (validRequests.length >= MAX_REQUESTS) {
     return false;
   }
-  
+
   validRequests.push(now);
   rateLimiter.set(ip, validRequests);
   return true;
@@ -34,6 +38,23 @@ function sanitizeInput(input: string): string {
   return input.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 }
 
+const router = Router();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// CV download route
+router.get("/download/cv", (req, res) => {
+  const cvPath = path.join(__dirname, "../attached_assets/Zephylarius Sitanggang_CV_2025-06-25_1751437801917.pdf");
+
+  res.download(cvPath, "Zephylarius_Sitanggang_CV.pdf", (err) => {
+    if (err) {
+      console.error("Error downloading CV:", err);
+      res.status(404).send("CV not found");
+    }
+  });
+});
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form endpoint
   app.post("/api/contact", async (req, res) => {
@@ -48,7 +69,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const validatedData = contactSchema.parse(req.body);
-      
+
       // Sanitize inputs
       const sanitizedData = {
         name: sanitizeInput(validatedData.name),
@@ -56,17 +77,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: validatedData.subject ? sanitizeInput(validatedData.subject) : undefined,
         message: sanitizeInput(validatedData.message)
       };
-      
+
       // In a real application, you would:
       // 1. Send an email using a service like Nodemailer, SendGrid, etc.
       // 2. Store the message in a database
       // 3. Send notifications
-      
+
       console.log("Contact form submission:", sanitizedData);
-      
+
       // Simulate email sending delay
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       res.json({ 
         success: true, 
         message: "Message sent successfully" 
@@ -91,3 +112,4 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
   return httpServer;
 }
+export default router;
