@@ -5,7 +5,7 @@ import { Router } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
-import 'dotenv/config'; // Make sure to load environment variables
+import 'dotenv/config';
 
 // Simple in-memory rate limiter
 const rateLimiter = new Map();
@@ -38,31 +38,31 @@ function sanitizeInput(input: string): string {
   return input.trim().replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 }
 
-const router = Router();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-router.get("/download/cv", (req, res) => {
-  const cvPath = path.join(__dirname, "../attached_assets/Zephylarius Sitanggang_CV_2025-06-25_1751437801917.pdf");
-  res.download(cvPath, "Zephylarius_Sitanggang_CV.pdf", (err) => {
-    if (err) {
-      console.error("Error downloading CV:", err);
-      res.status(404).send("CV not found");
-    }
-  });
-});
-
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Create a nodemailer transporter using your email service credentials
+  // CV download route
+  app.get("/download/cv", (req, res) => {
+    const cvPath = path.join(__dirname, "../attached_assets/Zephylarius Sitanggang_CV_2025-06-25_1751437801917.pdf");
+    res.download(cvPath, "Zephylarius_Sitanggang_CV.pdf", (err) => {
+      if (err) {
+        console.error("Error downloading CV:", err);
+        res.status(404).send("CV not found");
+      }
+    });
+  });
+
+  // Create a nodemailer transporter
   const transporter = nodemailer.createTransport({
-    service: 'gmail', // Or your email provider
+    service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
   });
 
+  // Contact form endpoint
   app.post("/api/contact", async (req, res) => {
     try {
       const clientIP = req.ip || req.connection.remoteAddress || 'unknown';
@@ -81,18 +81,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: validatedData.subject ? sanitizeInput(validatedData.subject) : 'No Subject',
         message: sanitizeInput(validatedData.message)
       };
-
-      // Setup email data
+      
       const mailOptions = {
-        from: `"${sanitizedData.name}" <${process.env.EMAIL_USER}>`, // Sender address
-        to: process.env.EMAIL_USER, // Your receiving email address
-        replyTo: sanitizedData.email, // Reply-to the person who filled the form
+        from: `"${sanitizedData.name}" <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_USER,
+        replyTo: sanitizedData.email,
         subject: `New Contact Form Submission: ${sanitizedData.subject}`,
         text: `You have a new message from ${sanitizedData.name} (${sanitizedData.email}):\n\n${sanitizedData.message}`,
         html: `<p>You have a new message from <strong>${sanitizedData.name}</strong> (${sanitizedData.email}):</p><p>${sanitizedData.message}</p>`,
       };
 
-      // Send the email
       await transporter.sendMail(mailOptions);
 
       res.json({ 
@@ -120,4 +118,3 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
   return httpServer;
 }
-export default router;
