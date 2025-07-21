@@ -59,7 +59,7 @@ export default function AboutSection() {
         
         <div className="mt-12 glass-card rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-semibold mb-4">Education & Languages</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="font-medium text-gray-300 mb-2">Current Education</h4>
               <p className="text-white/80">Bachelor of Science in Computing</p>
@@ -69,11 +69,6 @@ export default function AboutSection() {
               <h4 className="font-medium text-gray-400 mb-2">Languages</h4>
               <p className="text-white/80">Bahasa Indonesia (Native)</p>
               <p className="text-white/80">English (DET Score: 115)</p>
-            </div>
-            <div>
-              <h4 className="font-medium text-gray-200 mb-2">Contact</h4>
-              <p className="text-white/80">+62 81382728069</p>
-              <p className="text-white/80">zephylarius.zl@gmail.com</p>
             </div>
           </div>
         </div>
