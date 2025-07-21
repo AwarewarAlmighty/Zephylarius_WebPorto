@@ -1,6 +1,9 @@
 import { useEffect } from "react";
-import { ArrowRight, Download } from "lucide-react"; // Import the Download icon
+import { ArrowRight, Download } from "lucide-react";
 import profilePic from "@/assets/profile.jpg";
+
+// Get the backend URL from environment variables
+const API_URL = import.meta.env.VITE_API_BASE_URL || "";
 
 export default function HeroSection() {
   useEffect(() => {
@@ -98,10 +101,9 @@ export default function HeroSection() {
                 >
                   Get In Touch
                 </button>
-                {/* New Download CV Button */}
+                {/* Updated Download CV Button */}
                 <a
-                  href="/download/cv"
-                  download
+                  href={`${API_URL}/download/cv`}
                   className="group relative inline-flex items-center justify-center px-6 py-3 btn-glass text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
                 >
                   Download CV
