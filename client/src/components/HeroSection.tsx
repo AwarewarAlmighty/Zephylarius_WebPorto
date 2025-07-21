@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { ArrowRight } from "lucide-react";
-import profilePic from "@/assets/profile.jpg"; // Your profile picture import
+import { ArrowRight, Download } from "lucide-react"; // Import the Download icon
+import profilePic from "@/assets/profile.jpg";
 
 export default function HeroSection() {
   useEffect(() => {
@@ -98,9 +98,17 @@ export default function HeroSection() {
                 >
                   Get In Touch
                 </button>
+                {/* New Download CV Button */}
+                <a
+                  href="/download/cv"
+                  download
+                  className="group relative inline-flex items-center justify-center px-6 py-3 btn-glass text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
+                >
+                  Download CV
+                  <Download className="w-5 h-5 ml-2 transition-transform group-hover:translate-y-0.5" />
+                </a>
               </div>
 
-              {/* MOVED THE INFO TAGS HERE */}
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
                 <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
                   <span className="text-sm font-medium">GPA: 3.87</span>
