@@ -23,20 +23,21 @@ export default function ProjectsSection() {
       id: 2,
       title: "Cinema Booking System",
       period: "June 2025 (24-hour Hackathon)",
-      description: "Full-stack cinema booking web application developed within a 24-hour mini-hackathon, demonstrating rapid development skills.",
-      technologies: ["React", "Supabase", "Tailwind CSS", "React Router"],
+      description: "A full-stack web application for a cinema booking system that allows users to browse movies, select showtimes, book seats, and make payments. It also features a comprehensive admin panel for managing movies, halls, showtimes, and viewing reports. The system is built with a React frontend and a Node.js/Express backend, using MongoDB for the database.",
+      technologies: ["React", "Tailwind CSS", "MongoDB", "AWS EC2", "Express.js"],
       achievements: [
-        "10+ core features including user authentication",
-        "Interactive seat selection and payment system",
-        "Comprehensive admin panel with CRUD operations", 
-        "Responsive design across all devices"
+        "Full-Stack Application Development",
+        "Comprehensive User Experience",
+        "Advanced Admin Pane", 
+        "Data-Driven Reporting"
       ],
       color: "purple",
       techColors: {
         "React": "blue-500/20 text-blue-300",
-        "Supabase": "green-500/20 text-green-300",
         "Tailwind CSS": "cyan-500/20 text-cyan-300",
-        "React Router": "orange-500/20 text-orange-300"
+        "MongoDB": "green-500/20 text-green-300",
+        "AWS EC2": "orange-500/20 text-orange-300",
+        "Express.js": "gray-500/20 text-gray-300"
       }
     }
   ];
