@@ -22,8 +22,8 @@ export default function ProjectsSection() {
     {
       id: 2,
       title: "Cinema Booking System",
-      period: "June 2025 (24-hour Hackathon)",
-      description: "A full-stack web application for a cinema booking system that allows users to browse movies, select showtimes, book seats, and make payments. It also features a comprehensive admin panel for managing movies, halls, showtimes, and viewing reports. The system is built with a React frontend and a Node.js/Express backend, using MongoDB for the database.",
+      period: "June 2025",
+      description: "A full-stack web application for a cinema booking system that allows users to browse movies, select showtimes, book seats, and make payments. It also features a comprehensive admin panel for managing movies, halls, showtimes, and viewing reports.",
       technologies: ["React", "Tailwind CSS", "MongoDB", "AWS EC2", "Express.js"],
       achievements: [
         "Full-Stack Application Development",
@@ -39,15 +39,51 @@ export default function ProjectsSection() {
         "AWS EC2": "orange-500/20 text-orange-300",
         "Express.js": "gray-500/20 text-gray-300"
       }
+    },
+      {
+      id: 3,
+      title: "SenseHarvest",
+      period: "In Progress",
+      description: "A capstone project for small farmers to monitor warehouse conditions like temperature, gas level, and humidity. I am working with 4 other people in my team.",
+      technologies: ["React", "Express.js", "MongoDB"],
+      achievements: [
+        "Real-time monitoring of warehouse environment.",
+        "Data visualization for farmers.",
+        "Collaborative project with a team of 5."
+      ],
+      color: "green",
+      techColors: {
+        "React": "blue-500/20 text-blue-300",
+        "Express.js": "gray-500/20 text-gray-300",
+        "MongoDB": "green-500/20 text-green-300",
+      }
     }
   ];
 
   const getColorClass = (color: string) => {
-    return color === 'blue' ? 'text-gray-300' : 'text-gray-400';
+    switch (color) {
+      case 'blue':
+        return 'text-gray-300';
+      case 'purple':
+        return 'text-gray-400';
+      case 'green':
+        return 'text-gray-200';
+      default:
+        return 'text-gray-300';
+    }
   };
 
   const getButtonClass = (color: string) => {
-    return color === 'blue' ? 'bg-gray-500/20 text-gray-300 hover:bg-gray-500/30' : 'bg-gray-600/20 text-gray-400 hover:bg-gray-600/30';
+    switch (color) {
+      case 'blue':
+        return 'bg-gray-500/20 text-gray-300 hover:bg-gray-500/30';
+      case 'purple':
+        return 'bg-gray-600/20 text-gray-400 hover:bg-gray-600/30';
+      case 'green':
+        return 'bg-gray-400/20 text-gray-200 hover:bg-gray-400/30';
+      default:
+        return 'bg-gray-500/20 text-gray-300 hover:bg-gray-500/30';
+    }
   };
 
   return (
@@ -102,7 +138,7 @@ export default function ProjectsSection() {
               </div>
               
               <div className="flex space-x-4">
-                {project.id === 1 ? (
+                {project.id === 1 && (
                   <a 
                     href="https://github.com/AwarewarAlmighty/NeuroCura-AI"
                     target="_blank"
@@ -111,7 +147,8 @@ export default function ProjectsSection() {
                   >
                     View on GitHub
                   </a>
-                ) : (
+                )}
+                {project.id === 2 && (
                   <>
                     <a 
                       href="https://github.com/AwarewarAlmighty/Cinema-Booking-System"
@@ -130,6 +167,16 @@ export default function ProjectsSection() {
                       Live Demo
                     </a>
                   </>
+                )}
+                {project.id === 3 && (
+                  <a 
+                    href="https://github.com/namdosikh/SenseHarvest"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 text-center ${getButtonClass(project.color)}`}
+                  >
+                    View on GitHub
+                  </a>
                 )}
               </div>
             </div>
