@@ -2,43 +2,46 @@ export default function ExperienceSection() {
   const experiences = [
     {
       id: 1,
-      title: "Person In Charge, Event Organizer",
-      organization: "President University",
-      project: "'Proud To Be Catholic' (PTBC) New Student Welcoming Event",
-      period: "February 2024 - September 2024",
-      description: "Led event from concept to completion, developed master rundown and directed live on-site execution, managing program flow and coordinating team for seamless delivery.",
+      title: "Developer Intern",
+      organization: "Elice via PT. Inti Artistika Solusitama",
+      project: "AI-Powered Educational Platforms",
+      period: "October 2025 - May 2026",
+      highlights: [
+        "Refined frontend flows for AI-powered educational platform features",
+        "Ran structured QA across project generation, slide generation, library functions, and content workflows",
+        "Tested desktop and mobile responsiveness for clearer learning experiences",
+        "Reviewed AI-generated outputs for correctness, consistency, and educational usefulness"
+      ],
       color: "blue",
       align: "right"
     },
     {
       id: 2,
-      title: "Member, Event Organizer",
-      organization: "President University",
-      project: "Annual Easter Celebration",
-      period: "January 2024 - May 2024",
-      description: "Part of 5-person committee planning and executing annual Easter celebration. Designed event rundown and directed on-site execution through live timeline management.",
+      title: "Virtual Teaching Assistant",
+      organization: "Elice",
+      project: "Remote Coding Workshops",
+      period: "November 2025 - December 2025",
+      highlights: [
+        "Supported learners during remote coding workshops using Jupyter and Runbox environments",
+        "Helped participants debug issues and understand coding concepts during hands-on sessions",
+        "Monitored technical blockers and guided learners through workshop flow"
+      ],
       color: "purple",
       align: "left"
     },
     {
       id: 3,
-      title: "Member, Event Organizer",
-      organization: "President University",
-      project: "Campus Christmas Celebration",
-      period: "November 2023 - January 2024",
-      description: "Part of 6-person committee directing key logistics for campus Christmas celebration. Constructed master event rundown and managed on-site coordination.",
-      color: "green",
-      align: "right"
-    },
-    {
-      id: 4,
-      title: "Member of KomSel",
-      organization: "PuCatSo (President University Catholic Society)",
-      project: "Content Management & Speaker Coordination",
-      period: "October 2023 - October 2024",
-      description: "Responsible for managing content for KomSel including themes, Saint of the week selections, titles and speaker coordination according to raised themes.",
+      title: "Leadership & Event Organizer",
+      organization: "President University Catholic Society",
+      project: "Student Welcoming, Christmas, Easter & KomSel Activities",
+      period: "November 2023 - October 2024",
+      highlights: [
+        "Coordinated logistics, timelines, and team communication for campus events",
+        "Developed master rundowns and supported live on-site execution",
+        "Prepared weekly content themes, titles, and speaker coordination for KomSel activities"
+      ],
       color: "yellow",
-      align: "left"
+      align: "right"
     }
   ];
 
@@ -60,7 +63,7 @@ export default function ExperienceSection() {
             Experience
           </h2>
           <p className="text-lg md:text-xl text-white/70 px-4">
-            Leadership roles in event management and community engagement
+            Work experience, teaching support, and student leadership
           </p>
         </div>
         
@@ -86,9 +89,14 @@ export default function ExperienceSection() {
                   </div>
                   <p className="text-white/80 mb-2">{exp.organization}</p>
                   <p className="text-white/60 mb-4">{exp.project}</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <div className="space-y-2 text-sm text-white/70">
+                    {exp.highlights.map((highlight, index) => (
+                      <div key={index} className="flex items-start space-x-2">
+                        <div className={`w-1.5 h-1.5 ${exp.color === 'blue' ? 'bg-gray-400' : 'bg-gray-500'} rounded-full mt-2 flex-shrink-0`}></div>
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 
                 {/* Timeline Dot */}

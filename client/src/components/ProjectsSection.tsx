@@ -2,60 +2,76 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "NeuroCura AI",
-      period: "October 2024 - November 2024",
-      description: "AI assistant focused on neurological and cognitive health for both general and professional use.",
-      technologies: ["Python", "PyQt6", "Google AI"],
+      title: "Cinema Booking System",
+      role: "Full-Stack Developer",
+      period: "June 2025",
+      problem: "Cinema booking workflows need clear browsing, seat selection, payment simulation, and admin control in one system.",
+      built: "Built a full-stack booking app with movie browsing, showtime selection, interactive seats, simulated payment, authentication, and a role-based admin dashboard.",
+      outcome: "Delivered a complete user and admin flow with reporting support for managing movies, halls, schedules, and bookings.",
+      technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "Bcrypt", "Tailwind CSS", "Recharts", "Vite"],
       achievements: [
-        "100% responsive UI during AI computations via worker threads",
-        "60% modular codebase for enhanced reusability", 
-        "25% reduction in user interaction friction",
-        "40% faster development through strategic framework use"
+        "Implemented email/password authentication and Google OAuth 2.0",
+        "Built admin tools for managing movies, halls, schedules, and reports",
+        "Created booking flows for showtimes, seat selection, and payment simulation",
+        "Used Recharts for data-driven reporting"
       ],
       color: "blue",
       techColors: {
-        "Python": "blue-500/20 text-blue-300",
-        "PyQt6": "green-500/20 text-green-300", 
-        "Google AI": "purple-500/20 text-purple-300"
+        "React": "blue-500/20 text-blue-300",
+        "Node.js": "green-500/20 text-green-300",
+        "Express.js": "gray-500/20 text-gray-300",
+        "MongoDB": "emerald-500/20 text-emerald-300",
+        "JWT": "purple-500/20 text-purple-300",
+        "Bcrypt": "yellow-500/20 text-yellow-300",
+        "Tailwind CSS": "cyan-500/20 text-cyan-300",
+        "Recharts": "pink-500/20 text-pink-300",
+        "Vite": "violet-500/20 text-violet-300"
       }
     },
     {
       id: 2,
-      title: "Cinema Booking System",
-      period: "June 2025",
-      description: "A full-stack web application for a cinema booking system that allows users to browse movies, select showtimes, book seats, and make payments. It also features a comprehensive admin panel for managing movies, halls, showtimes, and viewing reports.",
-      technologies: ["React", "Tailwind CSS", "MongoDB", "AWS EC2", "Express.js"],
+      title: "NeuroCura AI",
+      role: "Programmer",
+      period: "October 2024 - November 2024",
+      problem: "Users need an approachable way to ask educational questions about neurological and cognitive health topics.",
+      built: "Built a PyQt6-based AI assistant prototype with Google Generative AI integration, modular message handling, and editable chat interactions.",
+      outcome: "Improved interface responsiveness by moving API calls into a worker thread and separating AI, message, and UI logic.",
+      technologies: ["Python", "PyQt6", "Google Generative AI"],
       achievements: [
-        "Full-Stack Application Development",
-        "Comprehensive User Experience",
-        "Advanced Admin Pane", 
-        "Data-Driven Reporting"
+        "Integrated Google Generative AI for health education support",
+        "Improved responsiveness by handling API calls through a worker thread",
+        "Structured the app into modular AI, message, and UI classes",
+        "Added message editing to improve user control"
       ],
       color: "purple",
       techColors: {
-        "React": "blue-500/20 text-blue-300",
-        "Tailwind CSS": "cyan-500/20 text-cyan-300",
-        "MongoDB": "green-500/20 text-green-300",
-        "AWS EC2": "orange-500/20 text-orange-300",
-        "Express.js": "gray-500/20 text-gray-300"
+        "Python": "blue-500/20 text-blue-300",
+        "PyQt6": "green-500/20 text-green-300", 
+        "Google Generative AI": "purple-500/20 text-purple-300"
       }
     },
       {
       id: 3,
       title: "SenseHarvest",
-      period: "In Progress",
-      description: "A capstone project for small farmers to monitor warehouse conditions like temperature, gas level, and humidity. I am working with 4 other people in my team.",
-      technologies: ["React", "Express.js", "MongoDB"],
+      role: "Capstone Lead",
+      period: "June 2025 - August 2025",
+      problem: "Small farmers need simple visibility into warehouse conditions and practical decision support.",
+      built: "Led a capstone web platform for IoT-based temperature and humidity monitoring with a Gemini API-powered chatbot.",
+      outcome: "Created a farmer-focused monitoring concept that combines environmental data visibility with AI-assisted recommendations.",
+      technologies: ["React", "Express.js", "MongoDB", "Gemini API", "IoT Monitoring"],
       achievements: [
-        "Real-time monitoring of warehouse environment.",
-        "Data visualization for farmers.",
-        "Collaborative project with a team of 5."
+        "Led the capstone project during the Full-Stack Development & Cloud Security Track",
+        "Built around IoT-based temperature and humidity monitoring",
+        "Added a Gemini API-powered chatbot for farmer decision support",
+        "Collaborated with a team of 5"
       ],
       color: "green",
       techColors: {
         "React": "blue-500/20 text-blue-300",
         "Express.js": "gray-500/20 text-gray-300",
         "MongoDB": "green-500/20 text-green-300",
+        "Gemini API": "purple-500/20 text-purple-300",
+        "IoT Monitoring": "orange-500/20 text-orange-300",
       }
     }
   ];
@@ -94,7 +110,7 @@ export default function ProjectsSection() {
             Featured Projects
           </h2>
           <p className="text-lg md:text-xl text-white/70 px-4">
-            Innovative solutions in AI healthcare and web development
+            Full-stack applications, AI prototypes, and farmer-focused product work
           </p>
         </div>
         
@@ -105,10 +121,12 @@ export default function ProjectsSection() {
                 <h3 className={`text-2xl font-semibold mb-2 ${getColorClass(project.color)}`}>
                   {project.title}
                 </h3>
-                <p className="text-white/60 mb-4">{project.period}</p>
-                <p className="text-white/80 leading-relaxed">
-                  {project.description}
-                </p>
+                <p className="text-white/60 mb-4">{project.role} • {project.period}</p>
+                <div className="space-y-3 text-white/80 leading-relaxed">
+                  <p><span className="font-medium text-white">Problem:</span> {project.problem}</p>
+                  <p><span className="font-medium text-white">What I Built:</span> {project.built}</p>
+                  <p><span className="font-medium text-white">Outcome:</span> {project.outcome}</p>
+                </div>
               </div>
               
               <div className="mb-6">
@@ -139,16 +157,6 @@ export default function ProjectsSection() {
               
               <div className="flex space-x-4">
                 {project.id === 1 && (
-                  <a 
-                    href="https://github.com/AwarewarAlmighty/NeuroCura-AI"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 text-center ${getButtonClass(project.color)}`}
-                  >
-                    View on GitHub
-                  </a>
-                )}
-                {project.id === 2 && (
                   <>
                     <a 
                       href="https://github.com/AwarewarAlmighty/Cinema-Booking-System"
@@ -167,6 +175,16 @@ export default function ProjectsSection() {
                       Live Demo
                     </a>
                   </>
+                )}
+                {project.id === 2 && (
+                  <a 
+                    href="https://github.com/AwarewarAlmighty/NeuroCura-AI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex-1 py-2 px-4 rounded-lg transition-colors duration-200 text-center ${getButtonClass(project.color)}`}
+                  >
+                    View on GitHub
+                  </a>
                 )}
                 {project.id === 3 && (
                   <a 

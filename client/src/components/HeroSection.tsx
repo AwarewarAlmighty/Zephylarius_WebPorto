@@ -79,12 +79,12 @@ export default function HeroSection() {
                 Zephylarius Sitanggang
               </h1>
               <p className="text-lg md:text-xl text-white/80 mb-6">
-                Cybersecurity Specialist & Event Management Expert
+                Full-Stack Developer | AI, QA & Security-Aware Products
               </p>
               <p className="text-base md:text-lg text-white/70 mb-8 max-w-2xl mx-auto md:mx-0">
-                A solutions-oriented Informatics student building secure
-                digital solutions while creating flawlessly orchestrated
-                experiences.
+                Informatics student experienced with React, Node.js, MongoDB,
+                AI-assisted learning tools, structured QA testing, and secure
+                authentication flows.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -113,7 +113,7 @@ export default function HeroSection() {
 
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
                 <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
-                  <span className="text-sm font-medium">GPA: 3.87</span>
+                  <span className="text-sm font-medium">GPA: 3.83 / 4.00</span>
                 </div>
                 <div className="glass-effect rounded-full px-5 py-2 hover:scale-110 transition-transform duration-300">
                   <span className="text-sm font-medium">

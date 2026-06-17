@@ -1,69 +1,47 @@
-import { useEffect, useRef } from "react";
-
 export default function SkillsSection() {
-  const skillBarsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    // Animate skill bars when they come into view
-    if (typeof window !== 'undefined' && window.gsap && window.ScrollTrigger) {
-      skillBarsRef.current.forEach((bar) => {
-        if (bar) {
-          const width = bar.getAttribute('data-width') || '0%';
-          window.gsap.fromTo(bar,
-            { width: '0%' },
-            {
-              width: width,
-              duration: 1.5,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: bar,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-              }
-            }
-          );
-        }
-      });
-    }
-  }, []);
-
   const programmingSkills = [
-    { name: "Python", level: 90 },
-    { name: "Java", level: 85 },
-    { name: "C++", level: 80 }
+    { name: "Python", level: "Strong" },
+    { name: "Java", level: "Strong" },
+    { name: "C++", level: "Working" },
+    { name: "TypeScript", level: "Working" },
+    { name: "Node.js", level: "Strong" }
   ];
 
-  const frameworks = [
-    { name: "React", level: "Advanced" },
-    { name: "PyQt6", level: "Expert" },
-    { name: "Tailwind CSS", level: "Advanced" },
-    { name: "Supabase", level: "Intermediate" },
-    { name: "Google AI", level: "Advanced" }
+  const fullStackSkills = [
+    "React",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "Tailwind CSS"
+  ];
+
+  const aiCloudDevopsSkills = [
+    "Google Generative AI",
+    "Cloud Services",
+    "CI/CD",
+    "Netlify"
   ];
 
   const cybersecuritySkills = [
-    "Risk Assessment",
     "Vulnerability Analysis", 
     "Ethical Hacking",
-    "Hardware Maintenance"
+    "Secure Authentication (JWT)",
+    "OAuth 2.0"
+  ];
+
+  const tools = [
+    "Visual Studio Code",
+    "Android Studio",
+    "Oracle VirtualBox"
   ];
 
   const softSkills = [
-    "Event Management",
     "Leadership",
+    "Coordination",
     "Public Speaking", 
-    "Problem Solving",
+    "Problem-Solving",
     "Teamwork"
   ];
-
-  const getLevelColor = (level: string) => {
-    switch (level) {
-      case "Expert": return "bg-gray-600/20 text-gray-200";
-      case "Advanced": return "bg-gray-500/20 text-gray-300";
-      case "Intermediate": return "bg-gray-400/20 text-gray-400";
-      default: return "bg-gray-500/20 text-gray-300";
-    }
-  };
 
   return (
     <section id="skills" className="py-20 relative">
@@ -73,19 +51,19 @@ export default function SkillsSection() {
             Skills & Technologies
           </h2>
           <p className="text-lg md:text-xl text-white/70 px-4">
-            Comprehensive technical and soft skills portfolio
+            Practical technical toolkit for full-stack, AI, QA, and secure product development
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {/* Soft Skills */}
+          {/* Full-Stack */}
           <div className="glass-card rounded-xl p-6">
             <h3 className="text-xl font-semibold mb-6 text-gray-300 flex items-center">
               <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
-              Soft Skills
+              Full-Stack
             </h3>
             <div className="space-y-3">
-              {softSkills.map((skill) => (
+              {fullStackSkills.map((skill) => (
                 <div key={skill} className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
                   <span className="text-white/80">{skill}</span>
@@ -94,19 +72,17 @@ export default function SkillsSection() {
             </div>
           </div>
           
-          {/* Frameworks & Tools */}
+          {/* AI / Cloud / DevOps */}
           <div className="glass-card rounded-xl p-6">
             <h3 className="text-xl font-semibold mb-6 text-gray-400 flex items-center">
               <div className="w-3 h-3 bg-gray-500 rounded-full mr-3"></div>
-              Frameworks & Tools
+              AI / Cloud / DevOps
             </h3>
             <div className="space-y-3">
-              {frameworks.map((framework) => (
-                <div key={framework.name} className="flex items-center justify-between">
-                  <span className="text-white/80">{framework.name}</span>
-                  <div className={`px-2 py-1 rounded text-xs ${getLevelColor(framework.level)}`}>
-                    {framework.level}
-                  </div>
+              {aiCloudDevopsSkills.map((skill) => (
+                <div key={skill} className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                  <span className="text-white/80">{skill}</span>
                 </div>
               ))}
             </div>
@@ -128,25 +104,50 @@ export default function SkillsSection() {
             </div>
           </div>
         </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Tools */}
+          <div className="glass-card rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-6 text-gray-300 flex items-center">
+              <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
+              Tools
+            </h3>
+            <div className="space-y-3">
+              {tools.map((tool) => (
+                <div key={tool} className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                  <span className="text-white/80">{tool}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Soft Skills */}
+          <div className="glass-card rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-6 text-gray-400 flex items-center">
+              <div className="w-3 h-3 bg-gray-500 rounded-full mr-3"></div>
+              Soft Skills
+            </h3>
+            <div className="space-y-3">
+              {softSkills.map((skill) => (
+                <div key={skill} className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                  <span className="text-white/80">{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         
         {/* Programming Languages */}
         <div className="glass-card rounded-xl p-8">
           <h3 className="text-2xl font-semibold mb-6 text-center text-gray-200">Programming Languages</h3>
-          <div className="space-y-4">
-            {programmingSkills.map((skill, index) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-2">
-                  <span className="text-white/80">{skill.name}</span>
-                  <span className="text-white/60">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-white/10 rounded-full h-2">
-                  <div 
-                    ref={(el) => skillBarsRef.current[index] = el}
-                    className="skill-bar h-2 rounded-full" 
-                    data-width={`${skill.level}%`}
-                    style={{ width: '0%' }}
-                  ></div>
-                </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {programmingSkills.map((skill) => (
+              <div key={skill.name} className="glass-effect rounded-full px-4 py-2">
+                <span className="text-white/85">{skill.name}</span>
+                <span className="text-white/45 mx-2">•</span>
+                <span className="text-white/60 text-sm">{skill.level}</span>
               </div>
             ))}
           </div>

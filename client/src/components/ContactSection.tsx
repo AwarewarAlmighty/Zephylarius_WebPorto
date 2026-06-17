@@ -76,7 +76,10 @@ export default function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-lg md:text-xl text-white/70 px-4">
-            Let's collaborate on your next cybersecurity project or event
+            Let's collaborate on software products, AI learning tools, QA workflows, or secure digital systems
+          </p>
+          <p className="text-base text-white/60 mt-4 px-4">
+            Open to internship and junior developer opportunities.
           </p>
         </div>
         
@@ -101,7 +104,9 @@ export default function ContactSection() {
                     <Mail className="w-5 h-5 text-gray-400" />
                   </div>
                   <div>
-                    <p className="text-white/80">zephylarius.zl@gmail.com</p>
+                    <a href="mailto:zephylarius.zl@gmail.com" className="text-white/80 hover:text-white transition-colors">
+                      zephylarius.zl@gmail.com
+                    </a>
                     <p className="text-white/60 text-sm">Response within 24 hours</p>
                   </div>
                 </div>
@@ -111,7 +116,14 @@ export default function ContactSection() {
                     <Linkedin className="w-5 h-5 text-gray-500" />
                   </div>
                   <div>
-                    <p className="text-white/80">LinkedIn Profile</p>
+                    <a
+                      href="https://www.linkedin.com/in/zephylarius-sitanggang/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      LinkedIn Profile
+                    </a>
                     <p className="text-white/60 text-sm">Professional networking</p>
                   </div>
                 </div>
@@ -123,19 +135,19 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                  <span className="text-white/80">Cybersecurity Consulting</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                  <span className="text-white/80">Event Management</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
                   <span className="text-white/80">Full-Stack Development</span>
                 </div>
                 <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                  <span className="text-white/80">AI-Assisted Educational Tools</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                  <span className="text-white/80">QA Testing & Responsive Review</span>
+                </div>
+                <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
-                  <span className="text-white/80">AI Integration</span>
+                  <span className="text-white/80">Secure Authentication & Product Quality</span>
                 </div>
               </div>
             </div>
@@ -176,8 +188,9 @@ export default function ContactSection() {
                     <SelectValue placeholder="Select a topic" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="cybersecurity">Cybersecurity Consultation</SelectItem>
-                    <SelectItem value="event">Event Management</SelectItem>
+                    <SelectItem value="software">Software Product Development</SelectItem>
+                    <SelectItem value="ai-education">AI Educational Tools</SelectItem>
+                    <SelectItem value="qa">QA Testing & Review</SelectItem>
                     <SelectItem value="development">Web Development</SelectItem>
                     <SelectItem value="collaboration">Collaboration Opportunity</SelectItem>
                     <SelectItem value="other">Other</SelectItem>

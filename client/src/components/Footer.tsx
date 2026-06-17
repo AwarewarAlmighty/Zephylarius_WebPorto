@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="glass-card rounded-xl p-8">
           <h3 className="text-2xl font-semibold mb-4">Zephylarius Sitanggang</h3>
           <p className="text-white/70 mb-6">
-            Cybersecurity Specialist • Event Management Expert • Full-Stack Developer
+            Full-Stack Developer • AI Product Builder • QA & Security-Aware Developer
           </p>
           <div className="flex justify-center space-x-6 mb-6">
             <a 
