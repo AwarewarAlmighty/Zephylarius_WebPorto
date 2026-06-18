@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { z } from "zod";
 import { Router } from "express";
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
@@ -40,15 +41,58 @@ function sanitizeInput(input: string): string {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const assetsDir = path.join(__dirname, "../attached_assets");
+
+function getLatestCvFile(): { path: string; downloadName: string } | null {
+  const validExtensions = new Set([".pdf", ".doc", ".docx"]);
+
+  if (!fs.existsSync(assetsDir)) {
+    return null;
+  }
+
+  const cvFiles = fs.readdirSync(assetsDir)
+    .filter((fileName) => {
+      const extension = path.extname(fileName).toLowerCase();
+      return fileName.toLowerCase().includes("cv") && validExtensions.has(extension);
+    })
+    .map((fileName) => {
+      const filePath = path.join(assetsDir, fileName);
+      const stats = fs.statSync(filePath);
+      return {
+        filePath,
+        extension: path.extname(fileName),
+        latestTime: Math.max(stats.birthtimeMs, stats.ctimeMs, stats.mtimeMs),
+      };
+    })
+    .sort((a, b) => b.latestTime - a.latestTime);
+
+  const latestCv = cvFiles[0];
+
+  if (!latestCv) {
+    return null;
+  }
+
+  return {
+    path: latestCv.filePath,
+    downloadName: `Zephylarius_Sitanggang_CV${latestCv.extension}`,
+  };
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // CV download route
   app.get("/download/cv", (req, res) => {
-    const cvPath = path.join(__dirname, "../attached_assets/Zephylarius Sitanggang_CV_2025-06-25_1751437801917.pdf");
-    res.download(cvPath, "Zephylarius_Sitanggang_CV.pdf", (err) => {
+    const latestCv = getLatestCvFile();
+
+    if (!latestCv) {
+      return res.status(404).send("CV not found");
+    }
+
+    res.download(latestCv.path, latestCv.downloadName, (err) => {
       if (err) {
         console.error("Error downloading CV:", err);
-        res.status(404).send("CV not found");
+        if (!res.headersSent) {
+          res.status(404).send("CV not found");
+        }
       }
     });
   });
